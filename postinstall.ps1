@@ -12,7 +12,6 @@ $apps = @(
     @{Name = "Google Chrome"; Package = "Google.Chrome"},
     @{Name = "Visual Studio Code"; Package = "Microsoft.VisualStudioCode"},
     @{Name = "7-Zip"; Package = "7zip.7zip"},
-    @{Name = "VLC Media Player"; Package = "VideoLAN.VLC"},
     @{Name = "Spotify"; Package = "Spotify.Spotify"},
     @{Name = "Zoom"; Package = "Zoom.Zoom"},
     @{Name = "Slack"; Package = "SlackTechnologies.Slack"},
@@ -29,5 +28,9 @@ foreach ($app in $apps) {
         Write-Output "Failed to install $($app.Name)."
     }
 }
+
+# Install VLC in a non-elevated session
+Write-Output "Installing VLC Media Player in a non-elevated session..."
+Start-Process -FilePath "winget" -ArgumentList "install --id VideoLAN.VLC --silent --accept-package-agreements --accept-source-agreements" -NoNewWindow
 
 Write-Output "All installations completed."
