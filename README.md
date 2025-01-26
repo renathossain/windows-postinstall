@@ -3,10 +3,10 @@
 Install the most common apps and make the most common customizations on Windows 11.
 
 1. Open Powershell with Administrator privileges.
-2. First allow the execution of powershell scripts using this command:
+2. Install Chocolatey:
 
 ```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
 3. Then, run the postinstaller using this command:
